@@ -1,113 +1,88 @@
-# High-Speed Rail Communication: Transmission Line Applications in Onboard Internet Systems
-# How Transmission Lines Power High-Speed Rail Internet
+#  INPUT AND TRANSFER IMPEDANCE
+# Open and Short circuited transmission lines
 
-# 1. Introduction:
+# 1.INTRODUCTION:
 
-As high-speed trains like India’s Vande Bharat Express and Japan's Shinkansen race across the country at speeds of over 300 km/h, passengers expect uninterrupted Wi-Fi and real-time updates.
-But transmitting stable signals at these speeds poses challenges like signal reflection, impedance mismatch, and electromagnetic interference (EMI). Transmission line theory plays a critical role in ensuring smooth data flow in these harsh environments.
+ In electrical and electronic circuits, understanding how signals behave at different points is essential for designing stable and efficient systems. 
+ Two important parameters thathelp analyze circuit performance are input impedance and transfer impedance. These
+ parameters describe how a circuit interacts with signals applied to it and how effectivelyit transfers those signals to the output.nput and transfer impedance are fundamental
+ parameters in electronic circuit analysis. While input impedance focuses on how the circuit interacts with a signal source, transfer impedance explains how that signal is
+ translated into an output response. Together, they help engineers design circuits that
+ are efficient, stable, and capable of handling signals without loss or distortion.
 
-![image](https://github.com/user-attachments/assets/c6801ec3-db98-4639-b8be-22c672e22509)
-
-
-# 2. System Overview: Onboard Communication Network:
-# Components involved:
-
-Train-mounted antenna (receives 4G/5G satellite/infrastructure signals)
-Router + RF modem in control cabin
-Internal Wi-Fi system in coaches
-Power amplifiers, bandpass filters, and RF splitters
-The RF sections use coaxial cables, microstrip lines, and waveguides, all governed by transmission line principles.
-
-# 3. Reflection Coefficient (Γ):
-![image](https://github.com/user-attachments/assets/8006fc10-ae30-4ff1-a5db-64a7864ac176)
-💡 Real-time use: The train’s rooftop antenna must be impedance matched with the coaxial feed line. Otherwise, reflected signals reduce data quality and affect real-time services like ticket verification, alerts, and entertainment.
-![image](https://github.com/user-attachments/assets/9a6f207a-8113-43ea-b521-886a1ca05a06)
+![1](https://github.com/user-attachments/assets/a08b26ff-d9c6-46bc-bebf-d3d958de3c31)
 
 
-# 4. VSWR (Voltage Standing Wave Ratio):
-![image](https://github.com/user-attachments/assets/0c749657-e810-467a-9c4a-4a120de2f534)
 
-​A VSWR closer to 1:1 ensures minimal standing wave and reflection. In high-speed rail, low VSWR is critical to maintain stable cellular or satellite connectivity, especially during handoffs between base stations.
-![image](https://github.com/user-attachments/assets/0e9c1475-9477-49ed-9241-79fc87e267ff)
+# 2. Calculating Input Impedance
 
+A signal source with an internal resistance of 200 Ω is connected to the input of an
+ amplifier. At the input terminals of the amplifier, the input voltage is measured as 5 V,
+ and the input current is 2 mA. Calculate the input impedance (Zi) of the amplifier.
 
-# 5. Return Loss & Insertion Loss:
-![image](https://github.com/user-attachments/assets/96c303a2-0357-4a33-a244-5f279914df96)
-
-High return loss ensures minimal reflection at connectors and filters
-
-Low insertion loss ensures minimal signal attenuation over long cable runs inside the train coaches
-![image](https://github.com/user-attachments/assets/e1222a37-b029-475a-9147-2072d5683e53)
+ ![WhatsApp Image 2025-11-28 at 08 47 24_2286cedd](https://github.com/user-attachments/assets/52c889e6-d3e1-4a6e-953c-05c141e32fb5)
 
 
-📌 Application: RF modems and amplifiers inside the train compartments are rated for <1.5 dB IL and >20 dB RL for smooth Wi-Fi delivery to passengers.
+# 3.  Determining Transfer Impedance
 
-# 6. S-Matrix Use in Routers and RF Modules:
-![image](https://github.com/user-attachments/assets/88ae88de-b5e4-4845-b825-c00daa9bb8f6)
+ The input current of a circuit is 3 mA, and the output voltage produced due to this
+ current is 6 V. Calculate the transfer impedance (Zt).
 
-📍 Use: In train routers and signal boosters, these parameters are used to model duplexers, filters, and amplifier stages. Designers use S-matrix modeling to ensure no signal leak occurs between input/output stages during wireless processing.
-![image](https://github.com/user-attachments/assets/0e187eb6-f6d4-4625-89b6-fb5771093168)
+ ![WhatsApp Image 2025-11-28 at 08 47 24_2706f65c](https://github.com/user-attachments/assets/329ac3a4-8115-4748-a60d-07bab449db98)
 
 
-# 7. Power Delivered to Load:
-![image](https://github.com/user-attachments/assets/0006468b-7974-4443-bec5-86a717bbe9df)
-Where ,
-𝑎1 is the incident power at the input port.
-🚉 In train systems, RF signal boosters calculate this to optimize transmitted signal strength through coach walls, ensuring each coach gets reliable Wi-Fi without exceeding safe RF limits.
 
-Real-Time Example: Transmission Lines in High-Speed Rail Internet Communication:
-Scenario: You're on Vande Bharat Express
-You're browsing YouTube at 160 km/h in a remote area.
-How is your phone connected to the internet?
+# 4.Transfer Impedance in a Sensor System
 
-🔄 The Communication Chain:
-Antenna on top of the train receives 4G/5G signals or satellite link.
+ A current-sensing resistor in a sensor circuit produces an output voltage of 0.8 V when
+ the input current is 0.4 mA. Find the transfer impedance and state whether the system
+ has good sensitivity
 
-The signal travels through coaxial transmission lines to:
+ ![WhatsApp Image 2025-11-28 at 08 47 25_f4f6283e](https://github.com/user-attachments/assets/e6f28f7b-549d-4c7a-8825-a5689e0f028a)
 
-RF modem
 
-Signal booster (amplifier)
 
-Router
+# 5.  Input Impedance of a Parallel Circuit
 
-Router distributes internet via Wi-Fi access points inside each coach.
-| Stage                 | Transmission Line Role                              |
-| --------------------- | --------------------------------------------------- |
-| Antenna → Modem       | Uses **coaxial cables** matched to 50Ω              |
-| Amplifier → Router    | **Microstrip lines** used on PCBs (FR4 material)    |
-| Router → Access Point | Controlled **signal split** with low insertion loss |
-| All points            | Require **impedance matching** to reduce reflection |
+ A circuit contains two components in parallel:
 
-Why is Matching Important Here?
-Imagine the train antenna picks up a signal. If the line from antenna to modem is mismatched:
+  Resistor 𝑅 1
+ 4 Ω R 1 
+=4kΩ
 
-Signal reflects back → Internet drops
+ Capacitor 𝐶
+ 10𝐹 C=10μF The input signal frequency is 1 kHz.
+ 
+ Find the input impedance of the parallel network.
 
-High VSWR → Energy lost, modem overheats
+ ![WhatsApp Image 2025-11-28 at 08 47 25_9e04807b](https://github.com/user-attachments/assets/1e612430-ec48-4a44-8b97-5c7d73002cb6)
 
-Poor S11 → Power isn’t reaching Wi-Fi
 
-By using transmission line formulas and carefully choosing cable types and lengths, engineers ensure:
 
-Maximum signal power goes to the device
+📌Applications of Input Impedance and Transfer Impedance
 
-Minimum reflection, especially during handover between towers
+# 6.Amplifier Design
 
-Stable high-speed internet, even at 300 km/h
+ High input impedance prevents loading of the previous stage Ensures the input signal
+ enters without loss or distortion
 
-📡 Real-Time Features Enabled by This:
-Live video surveillance upload to control center
+![WhatsApp Image 2025-11-28 at 08 39 03_d0b79d89](https://github.com/user-attachments/assets/38e2acf7-c21f-415b-9b31-948c0d7554b8)
 
-GPS + real-time tracking apps
 
-Passenger Wi-Fi
 
-Onboard entertainment streaming
+# 7.  Transmission Lines & Antenna Systems
 
-Cloud-based diagnostics of train hardware
+ Helps understand how input current affects radiated or received voltage. Important for
+ RF, microwave circuits, and antenna matching
+
+ ![WhatsApp Image 2025-11-28 at 08 39 03_1f888a84](https://github.com/user-attachments/assets/8a68c130-8ffd-489f-8c3e-1f768577b48c)
+ 
 
 # Conclusion:
-From the rooftop antenna to the passenger’s smartphone, every signal flows through a network governed by transmission line theory. These invisible principles ensure real-time, high-speed connectivity in a fast-moving, harsh RF environment.
 
-The next time you stream a movie or check train status mid-journey, you’re riding on the math of Γ, VSWR, and S-parameters.
+ Input impedance and transfer impedance are two fundamental parameters that play a  crucial role in the analysis, design, and performance of electronic circuits and communication systems. 
+ Input impedance determines how a circuit interacts with an  signal source, influencing signal strength, loading effects, and power transfer.
+ Transfer impedance, on the other hand, defines how effectively an input signal produces a corresponding output response, making it essential in amplifier analysis, sensor design,
+ and transmission line behavior. Understanding these impedances enables engineers to optimize circuit performance for
+ maximum efficiency, stability, and signal integrity. Whether in amplifiers, filters, sensors,  or high-frequency communication systems, proper impedance matching and evaluation
+ ensure improved functionality, reduced losses, and enhanced overall system reliability.
